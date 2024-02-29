@@ -65,6 +65,10 @@
     <div class="container">
         <!-- Example row of columns -->
         <div class="row">
+            </div>
+        <hr>
+
+
 
         </div>
         <hr>
@@ -73,6 +77,19 @@
                 <div class="card">
                     <div class="card-header">
                         Контактная информация
+                    </div>
+                    <div class="card-body">
+                        <p>Наименование: {{ object_list.name }}</p>
+                        <p>Адрес: {{ object_list.address }}</p>
+                        <p>E-mail: {{ object_list.email }}</p>
+                        <p>Контактный телефон: {{ object_list.phone }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        Для обратной связи
                     </div>
                     <div class="card-body">
                         <form method="post">
