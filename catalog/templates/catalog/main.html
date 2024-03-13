@@ -1,18 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Главная страница</title>
-</head>
-<body>
-<div class="row">
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+<div class="row row-cols-3 row-cols-md-3 g-1">
     {% for object in object_list %}
-    <div class="col-6">
-        <div class="card">
-            <p class="card-text">Товар: {{ object.name }}; Цена: {{ object.price }} </p>
+    <div class="col-3">
+        <div class="card" style="max-width: 18rem max-heigth: 18rem">
+            <div class="card-body">
+                <div class="col">
+                    <img src="{{ object.image | media_filter }}" class="img-fluid rounded-start" alt="{{ 'object.image' }}">
+                </div>
+                <h5 class="card-title">{{ object.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Цена: {{ object.price }}</h6>
+                <p class="card-text">{{ object.description|slice:":100" }}</p>
+                <a href="{% url 'cards' object.pk %}" class="card-link">О товаре</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
         </div>
     </div>
     {% endfor %}
 </div>
-</body>
-</html>
+{% endblock %}
