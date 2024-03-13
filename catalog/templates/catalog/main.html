@@ -7,13 +7,15 @@
         <div class="card" style="max-width: 18rem max-heigth: 18rem">
             <div class="card-body">
                 <div class="col">
-                    <img src="{{ object.image | media_filter }}" class="img-fluid rounded-start" alt="{{ 'object.image' }}">
+                    <img src="{{ object.image | media_filter }}" class="img-fluid rounded-start" title="{{ object.name }}" alt="{{ 'object.image' }}">
                 </div>
                 <h5 class="card-title">{{ object.name }}</h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">Цена: {{ object.price }}</h6>
                 <p class="card-text">{{ object.description|slice:":100" }}</p>
-                <a href="{% url 'cards' object.pk %}" class="card-link">О товаре</a>
-                <a href="#" class="card-link">Another link</a>
+                <td class="value">
+                    <a class="btn" align ="left" href="{% url 'cards' object.pk %}" >О товаре</a>
+                    <a class="btn" href="#">Добавить в корзину</a>
+                </td>
             </div>
         </div>
     </div>

@@ -34,4 +34,3 @@ class Command(BaseCommand):
                 product_list.append(Product(pk=item["pk"], category=category_dict.get(pk), **fields))
         Category.objects.bulk_create(category_list)
         Product.objects.bulk_create(product_list)
-
