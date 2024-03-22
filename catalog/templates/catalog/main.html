@@ -13,7 +13,7 @@
                 <h6 class="card-subtitle mb-2 text-body-secondary">Цена: {{ object.price }}</h6>
                 <p class="card-text">{{ object.description|slice:":100" }}</p>
                 <td class="value">
-                    <a class="btn" align ="left" href="{% url 'cards' object.pk %}" >О товаре</a>
+                    <a class="btn" align ="left" href="{% url 'catalog:cards' object.pk %}" >О товаре</a>
                     <a class="btn" href="#">Добавить в корзину</a>
                 </td>
             </div>

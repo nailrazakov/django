@@ -1,0 +1,22 @@
+{% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+<body>
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-12">
+            <img src="{{ object.preview | media_filter }}" class="img-fluid rounded-start" alt="{{ 'object.preview' }}">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h2 class="card-title">{{ object.title }}</h2>
+                <h3 class="card-title">{{ object.slug }}</h3>
+                <p class="card-text">{{ object.content }}</p>
+                <a href="{% url 'catalog:blogs' %}" class="card-link">Назад</a>
+            </div>
+        </div>
+    </div>
+    <p>Количество просмотров: {{ object.view_count }}</p>
+</div>
+</body>
+{% endblock %}

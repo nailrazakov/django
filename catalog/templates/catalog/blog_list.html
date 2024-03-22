@@ -1,0 +1,23 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+<div class="row row-cols-3 row-cols-md-3 g-1">
+    {% for object in object_list %}
+    <div class="col-4">
+        <div class="card" style="max-width: 18rem max-heigth: 18rem">
+            <div class="card-body">
+                <div class="col">
+                    <img src="/media/{{ object.preview }}" class="img-fluid rounded-start" title="{{ object.title }}" alt="{{ 'object.preview' }}">
+                </div>
+                <h5 class="card-title">{{ object.title }}</h5>
+                <p class="card-text">{{ object.content|slice:":100" }}</p>
+                <td class="value">
+                    <a class="btn" align ="left" href="{% url 'catalog:blog' object.pk %}" >Открыть статью</a>
+                    <a class="btn" align ="right" href="{% url 'catalog:update_blog' object.pk %}" >Редактировать статью</a>
+                    <a class="btn btn-danger" align ="center" href="{% url 'catalog:delete_blog' object.pk %}" >Удалить статью</a>
+                </td>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

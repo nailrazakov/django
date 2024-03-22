@@ -5,13 +5,13 @@
 <div class="card mb-3" style="max-width: 600px; max-height: 800px">
     <div class="row g-0">
         <div class="col-md-4">
-            <img src="{{ object_list.image | media_filter }}" class="img-fluid rounded-start" alt="{{ 'object_list.image' }}">
+            <img src="{{ object.image | media_filter }}" class="img-fluid rounded-start" alt="{{ 'object.image' }}">
         </div>
         <div class="col-md-8">
             <div class="card-body">
-                <h2 class="card-title">{{ object_list }}</h2>
-                <p class="card-text">{{ object_list.description }}</p>
-                <a href="{% url 'main' %}" class="card-link">Назад</a>
+                <h2 class="card-title">{{ object }}</h2>
+                <p class="card-text">{{ object.description }}</p>
+                <a href="{% url 'catalog:main' %}" class="card-link">Назад</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,23 @@
+A.btn {
+     color: #000000;
+     display: block;
+     font: 15px/20px 'Proxima Nova Bold', Arial, sans-serif;
+     height: 35px;
+     padding: 15px 0px 0px 0px;
+     position: relative;
+     text-align: center;
+     text-decoration: none;
+     text-transform: uppercase;
+    }
+    A.btn.s01 {
+     background-color: #3bf8e8;
+    }
+    A.btn.s01:hover {
+     background-color: #ffffff;
+    }
+    A.btn.s02 {
+     background-color: #3bf8e8;
+    }
+    A.btn.s02:hover {
+     background-color: #ffffff;
+    }
