@@ -7,14 +7,20 @@
         <div class="card" style="max-width: 18rem max-heigth: 18rem">
             <div class="card-body">
                 <div class="col">
-                    <img src="{{ object.image | media_filter }}" class="img-fluid rounded-start" title="{{ object.name }}" alt="{{ 'object.image' }}">
+                    <img src="{{ object.image | media_filter }}" class="img-fluid rounded-start" alt="{{ 'object.image' }}">
                 </div>
                 <h5 class="card-title">{{ object.name }}</h5>
+                {% if object.version %}
+                <h6>Версия: {{ object.version }}</h6>
+                {% else %}
+                <h6>Версия: отсутствует</h6>
+                {% endif %}
                 <h6 class="card-subtitle mb-2 text-body-secondary">Цена: {{ object.price }}</h6>
                 <p class="card-text">{{ object.description|slice:":100" }}</p>
                 <td class="value">
-                    <a class="btn" align ="left" href="{% url 'catalog:cards' object.pk %}" >О товаре</a>
-                    <a class="btn" href="#">Добавить в корзину</a>
+                    <a class="btn" align ="left" href="{% url 'catalog:product' object.pk %}" >О товаре</a>
+                    <a class="btn" align ="right" href="{% url 'catalog:update_product' object.pk %}" >Редактировать товар</a>
+                    <a class="btn" align ="center" href="{% url 'catalog:delete_product' object.pk %}" >Удалить товар</a>
                 </td>
             </div>
         </div>

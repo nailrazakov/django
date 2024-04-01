@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
+{% extends 'catalog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
 <body>
-$END$
+<div class="col-12">
+    <form class='row' method="post" enctype="multipart/form-data">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Добавить продукт
+                    </h3>
+                </div>
+                <div class="card-body">
+                    {% csrf_token %}
+                    {{ form| crispy }}
+                    {% if object %}
+                    <button type="submit" class="btn btn-success">Сохранить</button>
+                    <a href="{% url 'catalog:main' %}" class="card-link">Назад</a>
+                    {% else %}
+                    <button type="submit" class="btn btn-primary">Создать</button>
+                    <a href="{% url 'catalog:main' %}" class="card-link">Назад</a>
+                    {% endif %}
+
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Добавить Версию продукта
+                    </h3>
+                </div>
+                <div class="card-body">
+                    {{ formset.management_form }}
+                    {% for form in formset.forms %}
+                    {{ form }}
+                    {% endfor %}
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
 </body>
-</html>
+{% endblock %}
